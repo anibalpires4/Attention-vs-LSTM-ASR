@@ -1,38 +1,35 @@
 # Attention vs LSTM in Sequence-to-Sequence ASR
 
-This repository focuses on the implementation and analysis of encoder-decoder architectures for Automatic Speech Recognition (ASR). The project compares:
-1. **LSTM-Based Encoder-Decoder**: A traditional recurrent approach to sequence learning.
-2. **Attention-Based Encoder-Decoder**: A modern approach that excels in handling long-range dependencies.
-
----
+This project compares two encoder-decoder architectures for Automatic Speech Recognition (ASR):
+1. **LSTM-Based Decoder**: Sequential processing with hidden states for temporal dependencies.
+2. **Attention-Based Decoder**: Parallel processing with dynamic attention for global context.
 
 ## Overview
-This project evaluates the performance of these architectures on the LJ Speech dataset. The comparison highlights:
-- **Model Performance**: Metrics include Cosine Similarity, Jaccard Similarity, and Damerau-Levenshtein Distance.
-- **Scalability**: Attention mechanisms demonstrate improved scalability for longer sequences.
-- **Trade-offs**: LSTM struggles with long-range dependencies, while Attention mechanisms offer significant improvements in sequence modelling.
-
----
+- **Dataset**: LJ Speech Dataset (v1.1)
+- **Metrics**: Jaccard Similarity, Cosine Similarity, Damerau-Levenshtein Similarity
+- **Objective**: Evaluate performance and scalability for ASR tasks.
 
 ## Key Results
-- **Attention-Based Model**:
-  - Cosine Similarity: **86.52%**
-  - Jaccard Similarity: **76.45%**
-  - Damerau-Levenshtein Similarity: **63.33%**
-- **LSTM-Based Model**:
-  - Lower performance across all metrics, demonstrating the limitations of traditional recurrent architectures.
+| Metric                         | **LSTM Decoder** | **Attention Decoder** |
+|--------------------------------|------------------|-----------------------|
+| **Final Test Loss**            | 1.1828          | 1.1604               |
+| **Jaccard Similarity**         | 0.7149          | 0.7645               |
+| **Cosine Similarity**          | 0.8324          | 0.8652               |
+| **Damerau-Levenshtein Similarity** | 0.5087          | 0.6333               |
 
----
+- **LSTM**: Struggles with long-range dependencies due to sequential processing.
+- **Attention**: Excels in scalability and global dependency modelling.
+
+## Methodology
+- **LSTM Decoder**: Sequential token processing, hidden state updates, and cross-attention layers.
+- **Attention Decoder**: Parallel token processing, position embeddings, and attention layers.
 
 ## Technologies
-- **Programming Language**: Python
-- **Frameworks**: PyTorch
+- **Language**: Python
+- **Framework**: PyTorch
 - **Tools**: Jupyter Notebook, NLP Evaluation Metrics
 
----
-
 ## Usage
-1. **Clone the repository**:
+1. Clone the repository:
    ```bash
    git clone https://github.com/anibalpires4/Attention-vs-LSTM-ASR.git
-
